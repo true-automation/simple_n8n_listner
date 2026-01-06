@@ -17,7 +17,7 @@ app = FastAPI(
 
 # Bytez API Configuration
 BYTEZ_API_KEY = os.getenv("BYTEZ_API_KEY")
-BYTEZ_API_URL = "https://api.bytez.com/models/v2/zai-org/GLM-4.6V-Flash"
+BYTEZ_API_URL = "https://api.bytez.com/models/v2/deepseek-ai/DeepSeek-V3.2"
 CHAT_ENABLED = bool(BYTEZ_API_KEY)
 
 # --- Models ---
