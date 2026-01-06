@@ -11,7 +11,7 @@ app = FastAPI(
 )
 
 # Initialize Bytez SDK
-BYTEZ_API_KEY = os.getenv("BYTEZ_API_KEY", "03ba600d1e40ba3aaa1b44538b3543a0")
+BYTEZ_API_KEY = os.getenv("BYTEZ_API_KEY")
 sdk = Bytez(BYTEZ_API_KEY)
 model = sdk.model("zai-org/GLM-4.6V-Flash")
 
