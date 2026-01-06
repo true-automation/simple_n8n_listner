@@ -1,15 +1,16 @@
 # Math & Chat API
 
-A FastAPI application that performs math operations and provides AI-powered chat responses using the Bytez GLM-4.6V-Flash model.
+A FastAPI application that performs math operations and provides AI-powered chat responses using the Bytez API v2 (GLM-4.6V-Flash model).
 
 ## Features
 
 - ✅ Addition and multiplication of two numbers
-- ✅ AI-powered chat responses using GLM-4.6V-Flash
+- ✅ AI-powered chat responses using Bytez API v2
+- ✅ Configurable temperature and max_length parameters
 - ✅ Returns JSON responses
 - ✅ FastAPI with automatic API documentation
 - ✅ Docker support
-- ✅ Ready for Coolify deployment
+- ✅ Ready for Dokploy/Coolify deployment
 
 ## API Endpoints
 
@@ -38,7 +39,10 @@ Send a question to the AI chat model and get a response.
 **Request Body:**
 ```json
 {
-  "question": "What is the capital of France?"
+  "question": "What is the capital of France?",
+  "max_length": 500,
+  "temperature": 0.7,
+  "stream": false
 }
 ```
 
@@ -50,11 +54,24 @@ Send a question to the AI chat model and get a response.
 }
 ```
 
+**Parameters:**
+- `question` (required): The question to ask
+- `max_length` (optional, default: 500): Maximum response length
+- `temperature` (optional, default: 0.7): Response randomness (0.0-2.0)
+- `stream` (optional, default: false): Enable streaming response
+
 ### GET /
 Root endpoint with API information.
 
 ### GET /health
 Health check endpoint for monitoring.
+
+```json
+{
+  "status": "healthy",
+  "chat_enabled": true
+}
+```
 
 ## Local Development
 
