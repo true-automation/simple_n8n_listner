@@ -17,7 +17,7 @@ app = FastAPI(
 
 # Bytez API Configuration
 BYTEZ_API_KEY = os.getenv("BYTEZ_API_KEY")
-BYTEZ_API_URL = "https://api.bytez.com/models/v2/deepseek-ai/DeepSeek-V3.2"
+BYTEZ_API_URL = "https://api.bytez.com/models/v2/openai/gpt-4o"
 CHAT_ENABLED = bool(BYTEZ_API_KEY)
 
 # --- Models ---
