@@ -1,17 +1,35 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-# Create FastAPI app instance
+app = FastAPI(title="Math Operations API")
 
-app = FastAPI()
+class CalculationRequest(BaseModel):
+    x: float
+    y: float
 
-class SumRequest(BaseModel):
-    a: float
-    b: float
+class CalculationResponse(BaseModel):
+    sum: float
+    mult: float
 
-class SumResponse(BaseModel):
-    result: float
+@app.get("/")
+async def root():
+    return {
+        "message": "Welcome to the Math Operations API",
+        "features": ["Addition", "Multiplication"],
+        "docs": "/docs"
+    }
 
-@app.post("/sum", response_model=SumResponse)
-async def sum_numbers(request: SumRequest):
-    return SumResponse(result=request.a + request.b)
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
+@app.post("/calculate", response_model=CalculationResponse)
+async def calculate(request: CalculationRequest):
+    return {
+        "sum": request.x + request.y,
+        "mult": request.x * request.y
+    }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
