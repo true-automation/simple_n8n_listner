@@ -80,9 +80,9 @@ async def chat(request: ChatRequest) -> ChatResponse:
         }
 
         headers = {
-    "Authorization": BYTEZ_API_KEY,
-    "Content-Type": "application/json"
-}
+            "Authorization": f"Bearer {BYTEZ_API_KEY}",
+            "Content-Type": "application/json"
+        }
 
         response = requests.post(BYTEZ_API_URL, json=payload, headers=headers, timeout=30)
         logger.info(f"Bytez API response status: {response.status_code}")
