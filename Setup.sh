@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Math Operations API - Setup Script
+# Math & Chat API - Setup Script
 # This script helps you set up and deploy the application
 
 set -e
 
 echo "======================================"
-echo "Math Operations API - Setup"
+echo "Math & Chat API - Setup"
 echo "======================================"
 echo ""
 
@@ -40,18 +40,30 @@ echo ""
 echo "2. Add remote and push:"
 echo "   git remote add origin <your-repo-url>"
 echo "   git add ."
-echo "   git commit -m 'Initial commit: Math Operations API'"
+echo "   git commit -m 'Initial commit: Math & Chat API'"
 echo "   git push -u origin main"
 echo ""
-echo "3. Deploy on Coolify:"
+echo "3. Deploy on Dokploy or Coolify:"
+echo ""
+echo "   For Dokploy:"
+echo "   - Login to your Dokploy dashboard"
+echo "   - Click '+ Add Service' → 'Application'"
+echo "   - Connect your git repository"
+echo "   - Set port to 8000"
+echo "   - Add BYTEZ_API_KEY environment variable"
+echo "   - Deploy!"
+echo ""
+echo "   For Coolify:"
 echo "   - Login to your Coolify dashboard"
 echo "   - Click 'New Resource' → 'Application'"
 echo "   - Connect your git repository"
 echo "   - Set port to 8000"
+echo "   - Add BYTEZ_API_KEY environment variable"
 echo "   - Deploy!"
 echo ""
 echo "4. For detailed instructions, see:"
 echo "   - README.md"
+echo "   - DOKPLOY_DEPLOYMENT.md"
 echo "   - COOLIFY_DEPLOYMENT.md"
 echo ""
 echo "======================================"
